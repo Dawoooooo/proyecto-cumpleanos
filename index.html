@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torta Animada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div id="curtain-container">
+        <div class="curtain-half" id="left-curtain"></div>
+        <div class="curtain-half" id="right-curtain"></div>
+    </div>
+    
+    <div class="container">
+        <div id="cartel-wrapper"> 
+            <img id="cartel" src="imagenes/cartel.png" alt="Cartel de Aniversario">
+            <h1 id="typed-output"></h1>
+        </div>
+
+        <img id="llama" src="imagenes/llama1.png" alt="Llama Animada"> 
+        <div id="hearts-container"></div> 
+        
+    </div> 
+    
+    <img id="vela" src="imagenes/vela1.png" alt="Vela Grande Animada" class="hidden"> 
+
+    <div id="options-container" class="hidden">
+        <button id="btn-apagar" class="pixel-button">APAGAR VELA</button>
+        <button id="btn-no-apagar" class="pixel-button">NO APAGAR</button>
+    </div>
+
+    <div id="new-content" class="hidden-page">
+    
+    <div id="galaxy-wrapper">
+    <h1 class="pixel-text">NUESTRA GALAXIA DE RECUERDOS</h1>
+    <p class="pixel-text subtitle">Haz click en las estrellas para revivir nuestros momentos:</p>
+    
+    <div id="memory-map">
+        <button class="memory-point" data-memory-id="conocer" style="top: 25%; left: 15%;">🌟</button>
+        <button class="memory-point" data-memory-id="llamada1" style="top: 40%; left: 70%;">📞</button>
+        <button class="memory-point" data-memory-id="novios" style="top: 70%; left: 45%;">💖</button>
+
+        <button class="memory-point" data-memory-id="primerJuego" style="top: 55%; left: 20%;">🎮</button>
+        <button class="memory-point" data-memory-id="navidad" style="top: 80%; left: 10%;">🌲</button>
+        <button class="memory-point" data-memory-id="cumpleanios" style="top: 30%; left: 50%;">🎂</button>
+    </div>
+
+            
+    </div>
+    
+    <div id="memory-modal" class="pixel-modal hidden-modal">
+        <button id="close-modal" class="pixel-button close-btn">X</button>
+        <h2 id="modal-title" class="pixel-text modal-title"></h2>
+        
+        <div class="modal-content-area">
+            <img id="modal-image" src="" alt="Recuerdo de Aniversario" class="hidden">
+            <p id="modal-text" class="pixel-text modal-body"></p>
+        </div>
+        
+    </div>
+
+</div>
+
+<div id="final-image-container" class="hidden-final-phase">
+    <img id="final-teamo-img" src="imagenes/teamo.png" alt="Te Amo" class="teamo-img">
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="milky-way-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,683 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@font-face {
+  font-family: 'MinecraftPixel';
+  src: url('fonts\minecraft_font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'MinecraftPixel', monospace;
+}
+
+.pixel-text,
+h1, h2, p, button,
+input, textarea,
+body {
+  font-family: 'MinecraftPixel', monospace !important;
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(
+    270deg,
+    #0A0A1A,
+    #1A0F33,
+    #3A1F5A,
+    #1A0F33,
+    #0A0A1A
+  );
+  background-size: 400% 400%;
+  animation: galaxyMovement 25s ease infinite alternate;
+}
+
+@keyframes galaxyMovement {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+#hearts-container {
+  position: absolute;
+  top: 126%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.heart {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-image: url('imagenes/corazon.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: floatUp 5s linear infinite;
+  opacity: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-200px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.container {
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 900px;
+  max-height: 700px;
+}
+
+#llama {
+  position: absolute;
+  width: 250px;
+  height: auto;
+  top: 103%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+#cartel {
+  width: 70px;
+  height: auto;
+  margin-bottom: 20px;
+  z-index: 5;
+}
+
+.typed-cursor {
+  color: #000000;
+  opacity: 1;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#typed-output {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000000;
+  font-family: 'MinecraftPixel';
+  font-size: 1em;
+  white-space: nowrap;
+  text-shadow: none;
+  z-index: 2;
+  max-width: 90%;
+  text-align: center;
+}
+
+#cartel-wrapper {
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60vw;
+  max-width: 400px;
+  text-align: center;
+}
+
+#cartel {
+  width: 78%;
+  height: auto;
+  z-index: 1;
+}
+
+#typed-output {
+  position: absolute;
+  top: 50%;
+  left: 44%;
+  transform: translate(-50%, -590%);
+  color: #000000;
+  font-family: 'MinecraftPixel';
+  font-size: 1em;
+  white-space: nowrap;
+  text-shadow: none;
+  z-index: 2;
+  max-width: 90%;
+  text-align: center;
+}
+
+.cake-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+#vela {
+  position: absolute;
+  width: 450px;
+  height: auto;
+  top: 77%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 1.5s ease-in-out;
+  z-index: 10;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+#vela.visible {
+  display: block;
+  opacity: 1;
+}
+
+@keyframes shrinkAndFade {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+}
+
+.hide-element {
+  position: absolute;
+  top: 77%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: shrinkAndFade 1.5s ease-in-out forwards;
+}
+
+#options-container {
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 20px;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+#options-container.visible {
+  opacity: 1;
+}
+
+.pixel-button {
+  padding: 10px 20px;
+  font-family: 'MinecraftPixel';
+  font-size: 1.1em;
+  cursor: pointer;
+  text-shadow: none;
+  border: none;
+  background-color: #A0C0A0;
+  color: #000000;
+  border-radius: 0;
+  box-shadow:
+    inset -4px -4px 0px 0px #608060,
+    4px 4px 0px 0px #FFFFFF;
+  transition: all 0.1s ease;
+}
+
+.pixel-button:active {
+  box-shadow:
+    inset 4px 4px 0px 0px #608060,
+    -4px -4px 0px 0px #FFFFFF;
+  transform: translateY(2px);
+}
+
+#btn-no-apagar {
+  background-color: #C0A0A0;
+  box-shadow:
+    inset -4px -4px 0px 0px #806060,
+    4px 4px 0px 0px #FFFFFF;
+}
+
+#btn-no-apagar:active {
+  box-shadow:
+    inset 4px 4px 0px 0px #806060,
+    -4px -4px 0px 0px #FFFFFF;
+}
+
+@keyframes fallAndFade {
+  0% {
+    transform: translate(-50%, -50%) translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.disappear-final {
+  animation: fallAndFade 2s ease-in-out forwards;
+}
+
+@keyframes zoomAndRotateFade {
+  0% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.disappear-cartel {
+  animation: zoomAndRotateFade 2s ease-in-out forwards !important;
+}
+
+#curtain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 100;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.curtain-half {
+  width: 50%;
+  height: 100%;
+  background-color: #000000;
+  transition: transform 2s ease-in-out, opacity 0.5s;
+}
+
+.curtain-half.open {
+  transform: translateX(-100%);
+}
+
+#right-curtain.open {
+  transform: translateX(100%);
+}
+
+#curtain-container.fade-out {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+#new-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.5s ease-in-out;
+}
+
+#new-content.visible-page {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pixel-text {
+  font-family: 'MinecraftPixel';
+  color: #FFC0CB;
+  text-align: center;
+  margin: 10px;
+  text-shadow: 2px 2px #000000;
+}
+
+.container {
+  transition: opacity 1.5s ease-out;
+}
+
+.container.hidden-final {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#memory-map {
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  max-width: 800px;
+  max-height: 500px;
+  margin-top: 20px;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.memory-point {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 2em;
+  transition: transform 0.2s, filter 0.2s;
+  text-shadow: 0 0 5px #FFC0CB;
+}
+
+.memory-point:hover {
+  transform: scale(1.3) rotate(10deg);
+  filter: brightness(1.5);
+}
+
+#memory-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: rgba(10, 10, 30, 0.95);
+  border: 4px solid #FFC0CB;
+  box-shadow:
+    inset -8px -8px 0px 0px #3A1F5A,
+    8px 8px 0px 0px #000000;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.5s;
+}
+
+.hidden-modal {
+  display: none !important;
+  opacity: 0;
+}
+
+.modal-title {
+  font-size: 1.5em;
+  color: #FFD700;
+  margin-bottom: 15px;
+}
+
+.modal-body {
+  white-space: pre-wrap;
+  text-align: left;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  border-top: 2px dashed #1A0F33;
+  border-bottom: 2px dashed #1A0F33;
+}
+
+.modal-content-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#modal-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  image-rendering: pixelated;
+  border: 3px solid #FFFFFF;
+}
+
+.close-btn {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5em;
+  padding: 0;
+  line-height: 1;
+  z-index: 210;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#particles-js.new-galaxy {
+  background: linear-gradient(
+    270deg,
+    #04040A,
+    #080F25,
+    #122440,
+    #080F25,
+    #04040A
+  );
+  background-size: 400% 400%;
+  animation: galaxyMovement 25s ease infinite alternate;
+}
+
+#particles-js {
+  transition: background 1.5s ease-in-out;
+}
+
+@keyframes flyUpAndFade {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+#new-content.fly-away {
+  animation: flyUpAndFade 2s ease-out forwards;
+  pointer-events: none;
+}
+
+#final-image-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  opacity: 0;
+  z-index: 999;
+  transition: all 1.5s ease-in-out;
+}
+
+#final-image-container.show-final-phase {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.teamo-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.memory-point.visited {
+  color: #00FF00;
+  filter: brightness(0.5);
+  transition: all 0.5s;
+}
+
+/* Consultas de medios para responsividad */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 95vw;
+    height: 95vh;
+    max-width: none;
+    max-height: none;
+  }
+
+  #llama {
+    width: 180px;
+    top: 98%;
+  }
+
+  #cartel-wrapper {
+    width: 85vw;
+    top: 5vh;
+  }
+
+  #cartel {
+    width: 70%;
+  }
+
+  #typed-output {
+    font-size: 0.9em;
+    max-width: 95%;
+    left: 50%;
+    transform: translate(-50%, -500%);
+  }
+
+  #vela {
+    width: 350px;
+    top: 80%;
+  }
+
+  #options-container {
+    top: 92%;
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pixel-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    min-width: 200px;
+  }
+
+  #hearts-container {
+    width: 120px;
+    height: 120px;
+    top: 120%;
+    left: 50%;
+  }
+
+  .heart {
+    width: 20px;
+    height: 20px;
+  }
+
+  #memory-map {
+    width: 95vw;
+    height: 70vh;
+    max-height: none;
+  }
+
+  .memory-point {
+    width: 35px;
+    height: 35px;
+    font-size: 1.8em;
+  }
+
+  #memory-modal {
+    width: 95%;
+    max-width: none;
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .modal-title {
+    font-size: 1.3em;
+  }
+
+  .modal-body {
+    max-height: 150px;
+    font-size: 0.9em;
+  }
+
+  .close-btn {
+    top: -15px;
+    right: -15px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.3em;
+  }
+
+  #final-image-container .teamo-img {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #llama {
+    width: 150px;
+    top: 95%;
+  }
+
+  #vela {
+    width: 300px;
+    top: 85%;
+  }
+
+  #typed-output {
+    font-size: 0.8em;
+    transform: translate(-50%, -450%);
+  }
+
+  .pixel-button {
+    padding: 20px 40px;
+    font-size: 1.3em;
+    min-width: 220px;
+  }
+
+  #options-container {
+    top: 90%;
+    gap: 10px;
+  }
+
+  .memory-point {
+    width: 30px;
+    height: 30px;
+    font-size: 1.5em;
+  }
+
+  #memory-modal {
+    padding: 10px;
+  }
+
+  .modal-body {
+    max-height: 120px;
+    font-size: 0.8em;
+  }
+}
