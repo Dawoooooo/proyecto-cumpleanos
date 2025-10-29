@@ -638,7 +638,7 @@ body {
   }
 
   #typed-output {
-    top: 20vh;
+    top: 13vh;
     font-size: 0.8em;
     left: 50% !important;
     transform: translate(-50%, -50%);
