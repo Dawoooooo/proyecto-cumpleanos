@@ -568,7 +568,7 @@ body {
     font-size: 0.85em; /* Ligeramente más pequeño para centrar texto */
     max-width: 95%;
     left: 50% !important;
-    top: 25vh; /* Ajustado para centrado vertical con cartel */
+    top: 15vh; /* Ajustado para centrado vertical con cartel */
     transform: translate(-50%, -50%);
     text-align: center;
   }
@@ -638,7 +638,7 @@ body {
   }
 
   #typed-output {
-    top: 13vh;
+    top: 10vh;
     font-size: 0.8em;
     left: 50% !important;
     transform: translate(-50%, -50%);
