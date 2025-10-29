@@ -537,7 +537,7 @@ body {
   transition: all 0.5s;
 }
 
-/* Media Queries para Responsividad - Mejorado para Centrado en Teléfono */
+/* Media Query para Tablets y Móviles Medianos (768px y menos) */
 @media screen and (max-width: 768px) {
   .container {
     width: 100vw;
@@ -552,7 +552,7 @@ body {
   }
 
   #cartel-wrapper {
-    top: 2vh; /* Más arriba y centrado */
+    top: 0vh; /* Subido más arriba para centrar cartel y texto */
     left: 50%;
     transform: translateX(-50%);
     width: 95vw;
@@ -565,11 +565,11 @@ body {
   }
 
   #typed-output {
-    font-size: 0.85em; /* Ligeramente más pequeño para centrar texto */
+    font-size: 0.75em; /* Más pequeño que 0.85em para caber en cartel */
     max-width: 95%;
     left: 50% !important;
-    top: 15vh; /* Ajustado para centrado vertical con cartel */
-    transform: translate(-50%, -50%);
+    top: 12vh; /* Subido de 15vh a 12vh para alinear con cartel arriba */
+    transform: translate(-50%, -40%); /* Ajuste vertical: -40% sube el texto ~20% más arriba en el cartel */
     text-align: center;
   }
 
@@ -630,18 +630,18 @@ body {
   }
 }
 
-/* Media Query Extra para Teléfonos Muy Pequeños (Vertical) */
+/* Media Query Extra para Teléfonos Muy Pequeños (Vertical, 480px y menos) */
 @media screen and (max-width: 480px) {
   #cartel-wrapper {
-    top: 1vh;
+    top: -1vh; /* Aún más arriba si es necesario, pero no negativo extremo */
     width: 100vw;
   }
 
   #typed-output {
-    top: 10vh;
-    font-size: 0.8em;
+    top: 8vh; /* Subido de 10vh a 8vh para pantallas chiquitas */
+    font-size: 0.7em; /* Aún más pequeño para caber */
     left: 50% !important;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -30%); /* -30% sube más verticalmente en cartel pequeño */
   }
 
   #vela {
@@ -669,3 +669,4 @@ body {
     top: 90vh;
   }
 }
+
